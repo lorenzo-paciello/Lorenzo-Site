@@ -2,7 +2,7 @@ function ecommerceEvents(){
     document.addEventListener('DOMContentLoaded', () => {
         
         // view_promotion e select_promotion na home
-        if(window.location.pathname == '/index.html'){
+        if(window.location.pathname == '/Lorenzo-Site'){
             gtag("event", "view_promotion", {
                 creative_name: "creative_name",
                 creative_slot: "creative_slot",
@@ -103,7 +103,7 @@ function ecommerceEvents(){
         }
 
         // view_item_list e select_item em itemListPage.html
-        if(window.location.pathname == '/itemListPage.html'){
+        if(window.location.pathname.includes("itemListPage.html")){
               gtag("event", "view_item_list", {
                 item_list_id: "item_list_id",
                 item_list_name: "item_list_name",
@@ -193,7 +193,7 @@ function ecommerceEvents(){
         };
 
         // view_item e add_to_cart em pageDetail1 e pageDetail2
-        if(window.location.pathname == '/pageDetail1.html'){
+        if(window.location.pathname.includes("pageDetail1.html")){
             gtag("event", "view_item", {
                 currency: "BRL",
                 value: 9.99,
@@ -242,7 +242,7 @@ function ecommerceEvents(){
                 });
             })
         }
-        if(window.location.pathname == '/pageDetail2.html'){
+        if(window.location.pathname.includes("pageDetail2.html")){
             gtag("event", "view_item", {
                 currency: "BRL",
                 value: 18.98,
@@ -293,7 +293,7 @@ function ecommerceEvents(){
         }
 
         // purchase
-        if(window.location.pathname == '/purchase.html'){
+        if(window.location.pathname.includes("purchase.html")){
           new Promise((resolve, reject) => {
             resolve(window.localStorage)
           }).then(() => {

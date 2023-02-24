@@ -5,7 +5,8 @@
     <script src="ecommerce.js"></script>
     <script>
         new Promise((resolve, reject) => {
-            resolve(window.localStorage)
+            if(window.localStorage)
+            resolve()
         }).then(() => {
             if(!window.localStorage.getItem('user_id')){
                 window.localStorage.setItem('user_id', JSON.stringify(Math.floor(Math.random() * 1000000 + 1)))

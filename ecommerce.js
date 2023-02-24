@@ -2,7 +2,7 @@ function ecommerceEvents(){
     document.addEventListener('DOMContentLoaded', () => {
         
         // view_promotion e select_promotion na home
-        if(window.location.pathname == '/Lorenzo-Site/'){
+        if(window.location.pathname == '/Lorenzo-Site/' || window.location.pathname == '/index.html'){
             gtag("event", "view_promotion", {
                 creative_name: "creative_name",
                 creative_slot: "creative_slot",

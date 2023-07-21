@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement Protocol test</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM5D00GJ8P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments)};
+            gtag('js', new Date());
+            gtag('config', 'G-FM5D00GJ8P', {
+                'user_id': window.localStorage.getItem('user_id'),
+                'send_page_view': false
+            });
+    </script>
+</head>
+<body>
+    <button id="measurement_button" style="margin: auto;">Measurement Protocol Request Example</button>
+    <script>
+        (function(){
+            window.addEventListener('click', () => {
+                const measurement_id = 'G-FM5D00GJ8P';
+                const api_secret = 'ZIG-L4ZtSXW-JUUGh8P6VA';
+                gtag('get', measurement_id, 'client_id', (client_id) => {
+                const event_name = 'measurement_pageview';
+                fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        "client_id": client_id,
+                        "events": [{
+                            "name": event_name,
+                            "params": {
+                                "test_measurement": 'sent by measurement protocol'
+                            }
+                        }]
+                    })
+                }).then((response) => {
+                    var requestResponse = document.createElement('ul');
+                    if(response.status !== 404){
+                        var status = document.createElement('li');
+                        var params = document.createElement('li');
+
+                        status.appendChild(document.createTextNode("Request Status: " + response.status));
+                        params.appendChild(document.createTextNode(`Request Params:\n\tEvent: ${event_name}\n\ttest_measurement: sent by measurement protocol`));
+                        requestResponse.appendChild(status);
+                        requestResponse.appendChild(params);
+                        document.body.appendChild(requestResponse);
+                        document.body.style = 'white-space: pre';
+                    }
+                }).catch((error) => {
+                    var requestResponse = document.createElement('p');
+                    requestResponse.appendChild(document.createTextNode('Request Error!'));
+                    document.body.appendChild(requestResponse);
+                })
+            })
+            })
+        })()
+    </script>
+    
+</body>
+</html>

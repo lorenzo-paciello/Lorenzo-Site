@@ -2,32 +2,23 @@
 <html lang="en">
 <head>
 
-    <script src="ecommerce.js"></script>
-    <script>
-        new Promise((resolve, reject) => {
-            if(window.localStorage)
-            resolve()
-        }).then(() => {
-            if(!window.localStorage.getItem('user_id')){
-                window.localStorage.setItem('user_id', JSON.stringify(Math.floor(Math.random() * 1000000 + 1)))
-            }}).catch((error) => {console.log(error)});
-    </script>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM5D00GJ8P"></script>
     <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments)};
   gtag('js', new Date());
-  gtag('config', 'G-FM5D00GJ8P', {'user_id': window.localStorage.getItem('user_id')});
+  gtag('config', 'G-FM5D00GJ8P', {
+    'user_id': window.localStorage.getItem('user_id')
+    });
 </script>
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-58NJP8R');</script>
+    })(window,document,'script','dataLayer','GTM-TGC8QKX');</script>-->
     <!-- End Google Tag Manager -->
 
     
@@ -47,9 +38,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="header-site">
         <h1>Lorenzo Site GA4</h1>
         
-            <a id="promotion1" href="/Lorenzo-Site/itemListPage.html">Promotion 1</a>
+            <a id="promotion1" href="/itemListPage.html">Promotion 1</a>
         
-            <a id="promotion2" href="/Lorenzo-Site/itemListPage.html">Promotion 2</a>
+            <a id="promotion2" href="/itemListPage.html">Promotion 2</a>
+
+            <button>
+                <a href="/measurement.html">Measurement Protocol Example Page</a>
+            </button>
 
             <h3>Arnold Alois Schwarzenegger (Graz, 30 de julho de 1947) é um fisiculturista, ator, empresário e político austro-americano, tendo servido como 38º Governador do estado da Califórnia de 2004 a 2011.
 
@@ -76,5 +71,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </header>
     
+<script src="ecommerce.js"></script>
+    <script>
+        new Promise((resolve, reject) => {
+            if(window.localStorage)
+            resolve()
+        }).then(() => {
+            if(!window.localStorage.getItem('user_id')){
+                window.localStorage.setItem('user_id', JSON.stringify(Math.floor(Math.random() * 1000000 + 1)))
+            }}).catch((error) => {console.log(error)});
+    </script>
 </body>
 </html>

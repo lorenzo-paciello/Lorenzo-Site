@@ -5,6 +5,15 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM5D00GJ8P"></script>
     <script>
+        new Promise((resolve, reject) => {
+            if(window.localStorage)
+            resolve()
+        }).then(() => {
+            if(!window.localStorage.getItem('user_id')){
+                window.localStorage.setItem('user_id', JSON.stringify(Math.floor(Math.random() * 1000000 + 1)))
+            }}).catch((error) => {console.log(error)});
+    </script>
+    <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments)};
   gtag('js', new Date());
@@ -72,14 +81,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
     
 <script src="ecommerce.js"></script>
-    <script>
-        new Promise((resolve, reject) => {
-            if(window.localStorage)
-            resolve()
-        }).then(() => {
-            if(!window.localStorage.getItem('user_id')){
-                window.localStorage.setItem('user_id', JSON.stringify(Math.floor(Math.random() * 1000000 + 1)))
-            }}).catch((error) => {console.log(error)});
-    </script>
 </body>
 </html>
